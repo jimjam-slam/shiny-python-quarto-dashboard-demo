@@ -5,3 +5,5 @@ _site
 .venv
 *.html
 index_files/
+app.py
+main.py

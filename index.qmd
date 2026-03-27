@@ -9,12 +9,13 @@ server: shiny
 ```{python}
 import seaborn as sns
 penguins = sns.load_dataset("penguins")
+from shiny.express import render, ui
+from quarto import render as quarto_render
 ```
 
 ## {.sidebar}
 
 ```{python}
-from shiny.express import render, ui
 ui.input_select("x", "Variable:",
                 choices=["bill_length_mm", "bill_depth_mm"])
 ui.input_select("dist", "Distribution:", choices=["hist", "kde"])
@@ -38,3 +39,13 @@ Some more static content goes here!
 If it's really long, we can split it off into other files:
 
 {{< include _otherpage.qmd >}}
+
+# Download report
+
+```{python}
+# get a temporary file name, render the report and return the temp file
+@render.download(filename="report.pdf", label="Download a custom report!")
+def custom_report():
+    quarto_render('report.qmd')
+    return 'report.pdf'
+```

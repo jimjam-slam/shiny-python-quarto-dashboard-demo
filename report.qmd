@@ -1,0 +1,7 @@
+---
+title: My PDF report
+author: James Goldie
+format: typst
+---
+
+Hello world! Here's a sample chart made in Seaborn:
