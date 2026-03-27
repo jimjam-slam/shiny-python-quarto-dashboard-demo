@@ -4,4 +4,24 @@ author: James Goldie
 format: typst
 ---
 
+```{python}
+#| tags: [parameters]
+#| echo: false
+#| output: false
+x = "bill_length_mm"
+kind = "kde"
+```
+
 Hello world! Here's a sample chart made in Seaborn:
+
+```{python}
+import seaborn as sns
+penguins = sns.load_dataset("penguins")
+sns.displot(
+  data=penguins, hue="species", multiple="stack",
+  x=x, kind=kind)
+```
+
+**Variable:** `{python} x`
+
+**Distribution:** `{python} kind`
